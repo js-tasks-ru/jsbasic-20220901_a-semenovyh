@@ -12,9 +12,8 @@ let salaries = {
 		for(let key in zp) {
 			if (typeof zp[key] != 'number' || isFinite(zp[key]) == false) {
 				continue;
-			} else {
-				sum += zp[key];
 			}
+		sum += zp[key];
 		}
 return(sum);
 }
