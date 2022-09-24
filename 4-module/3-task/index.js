@@ -1,15 +1,22 @@
 function highlight(table) {
-
-	for(let i = 1; i < table.rows.length; i++) {
-
-		let row = table.rows[i];
-		if((row.cells[3].innerTEXT == 'true')? row.className = 'available' : row.className = 'unavailable');
-		if(row.cells[3].innerTEXT.hasAttribute) {row.style = 'hidden'};
-		if(row.cells[2] == 'm') {row.className = 'male'};
-		if(row.cells[2] == 'f') {row.className = 'female'};
-		if(row.cells[1] < 18) {row.style.textDecoration = '[line-through]'};
+			
+	for(let row of table.children[1].rows) {
+				
+		if(row.cells[3].hasAttribute('data-available')) {
+			if(row.cells[3].dataset.available == 'true') {
+				row.classList.add('available');
+			}
+			if(row.cells[3].dataset.available == 'false') {
+				row.classList.add('unavailable');
+			}
+		} else {
+			row.hidden = true;
+		}
+		if(row.cells[2].textContent == 'm') row.classList.add('male');
+		if(row.cells[2].textContent == 'f') row.classList.add('female');
 		
-
+		let age = +row.cells[1].textContent;
+		if(age < 18) row.style.textDecoration = 'line-through';
 	}
   
 }
