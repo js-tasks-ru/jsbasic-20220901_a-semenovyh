@@ -1,3 +1,5 @@
 function hideSelf() {
-  // ваш код...
+	document.getElementsByTagName('button')[0].onclick = function(){
+		document.getElementsByTagName('button')[0].hidden = true;
+	}
 }
