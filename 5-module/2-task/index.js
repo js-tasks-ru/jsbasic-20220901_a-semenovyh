@@ -9,10 +9,5 @@ function toggleText() {
 				text.hidden = true;
 			}
 		}
-		/*function handler2() {
-			text.hidden = false;
-		}	*/
-	
 		button.addEventListener("click", handler);
-		//button.addEventListener("click", handler2);
 }
