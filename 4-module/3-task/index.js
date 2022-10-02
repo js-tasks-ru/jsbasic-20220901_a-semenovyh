@@ -18,5 +18,5 @@ function highlight(table) {
 		let age = +row.cells[1].textContent;
 		if(age < 18) row.style.textDecoration = 'line-through';
 	}
-  
+	
 }

@@ -1,5 +1,6 @@
 function hideSelf() {
-	document.getElementsByTagName('button')[0].onclick = function(){
-		document.getElementsByTagName('button')[0].hidden = true;
+	let button = document.querySelector('.hide-self-button');
+	button.onclick = function(){
+		button.hidden = true;
 	}
 }
