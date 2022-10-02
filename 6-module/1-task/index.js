@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 /**
  * Компонент, который реализует таблицу
  * с возможностью удаления строк
@@ -17,36 +18,37 @@ export default class UserTable {
 	elem = null;
 
 
-  	constructor({rows}) {
-		this.rows = rows;
-		this.render();
+  	constructor(rows) {
+	  this.rows = rows;
+	  this.render();
  	}
 
 
   	render() {
-		this.elem = document.createElement('table');
-		this.elem.innerHTML = this.template();
+	  const table = document.createElement('table');
+	  table.innerHTML = this.template();
+	  this.elem = table;
 		
-		this.elem.addEventListener('click', this.onButtonClick);
+	  this.elem.addEventListener('click', this.onButtonClick);
 	}
 
 
 	onButtonClick = (event) => {
 	 	if (event.target.closest('button')) {
-			event.target.closest('tr').remove();
-		}	 	
+	    event.target.closest('tr').remove();
+	  }	 	
 	}
 
 
 	createElement(html) {
-		const tempDiv = document.createElement('div');
-		tempDiv.innerHTML = html;
+	  const tempDiv = document.createElement('div');
+	  tempDiv.innerHTML = html;
   
-		return tempDiv.firstElementChild;
-  }
+	  return tempDiv.firstElementChild;
+	}
 
 	template() {
-		return `
+	  return `
 			<thead>
 				<tr>
 					<th>Имя</th>
@@ -57,33 +59,33 @@ export default class UserTable {
 				</tr>
 			</thead>
 			<tbody>
-				${this.rows.map((value) => `<tr><td>${value.name}</td>
+				${this.rows.map((value) => `<tr>
+					<td>${value.name}</td>
 					<td>${value.age}</td>
 					<td>${value.salary}</td>
 					<td>${value.city}</td>
 					<td><button>X</button></td>
 				</tr>`).join('\n')}
 			</tbody>
-		`
+		`;
 	}
 
-}
+}/*
+let rows = [
+	{
+	  name: 'Вася',
+	  age: 25,
+	  salary: 1000,
+	  city: 'Самара'
+	},
+	{
+	  name: 'Петя',
+	  age: 30,
+	  salary: 1500,
+	  city: 'Москва'
+	}
+ ];
 
-const table = new UserTable({
-	rows: [
-		{
-			name: 'Вася',
-			age: 25,
-			salary: 1000,
-			city: 'Самара'
-		},
-		{
-			name: 'Петя',
-			age: 30,
-			salary: 1500,
-			city: 'Москва'
-		}
-	]
-});
+let table = new UserTable(rows);
 
-document.body.append(table.elem);
+document.body.appendChild(table.elem);*/
