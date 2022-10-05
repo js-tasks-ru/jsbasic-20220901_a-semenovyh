@@ -10,7 +10,7 @@
       <td>Name</td>
       <td>Age</td>
       <td>Gender</td>
-      <td>Status</td>
+      <td>Status</td> 
     </tr>
   </thead>
   <tbody>
